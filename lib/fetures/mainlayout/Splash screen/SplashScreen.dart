@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fi_sekaty_carpooling_app/core/AssetsManger/Assets_manger.dart';
 import 'package:fi_sekaty_carpooling_app/core/RoutesManger/Routesmanger.dart';
+import '../../../core/Coloursmanger/Colours_manger.dart';
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
 
@@ -11,8 +12,8 @@ class Splashscreen extends StatefulWidget {
 class _SplashscreenState extends State<Splashscreen> {
 @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    nevigatestate();
   }
   void nevigatestate(){
   Future.delayed(Duration( seconds: 3),(){
@@ -20,18 +21,23 @@ class _SplashscreenState extends State<Splashscreen> {
       }
   );
 }
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
+Widget build(BuildContext context) {
+  return Scaffold(
+      backgroundColor: Colorsmanger.Whiteblue,
+      body:
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+        SizedBox(height: 200,),
+      Container(
           width: 200,
-          height: 200,
-          child: Image(image:  AssetImage(Imagemanger.logoimage)),
-        )
-       
-        ],
-    );
+          height: 250,
+          child: Image(image: AssetImage(Imagemanger.logoimage,)
+            ,)
+
+      ),
+      ],
+      ),
+  );
   }
 }
