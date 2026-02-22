@@ -7,6 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../config/resoursec/isvalidate.dart';
 import '../../../core/AssetsManger/Assets_manger.dart';
 import '../../../core/Coloursmanger/Colours_manger.dart';
+import '../../../core/Widget/Custom_Elvated button.dart';
+import '../../../core/Widget/Custom_Text_Button.dart';
+import '../../../l10n/app_localizations.dart';
 class Login extends StatefulWidget {
 
   const Login({super.key});
@@ -21,14 +24,14 @@ class Login extends StatefulWidget {
 ///✅ They can pass data to backend or show backend data
 ///✅ They act as a bridge, but they “live” on the UI side, not the backend side
 class _LoginState extends State<Login> {
-  bool securePassword=true;
-  late TextEditingController _namecontroller;    // this
+  bool securePassword = true;
+  late TextEditingController _namecontroller; // this
   late TextEditingController _emailcontroller;
   late TextEditingController _passwordcontroller;
-  late TextEditingController _repasswordcontroller;//
-  GlobalKey<FormState> _formkey=GlobalKey<FormState>();
-  void initState() {
+  late TextEditingController _repasswordcontroller; //
+  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
+  void initState() {
     _emailcontroller = TextEditingController();
     _passwordcontroller = TextEditingController();
     super.initState();
@@ -131,7 +134,7 @@ class _LoginState extends State<Login> {
                         onTap: () {
                           Navigator.pushReplacementNamed(
                             context,
-                            Routesmanger.Registes,
+                            Routesmanger.Rigesters,
                           );
                         },
                       ),
@@ -173,7 +176,7 @@ class _LoginState extends State<Login> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(Imagemanger.GoogleIcon),
+                        Image.asset(Imagemanger.Googleicon),
                         SizedBox(width: 4.w),
                         Text("Google",
                           style: GoogleFonts.inter(
@@ -196,24 +199,25 @@ class _LoginState extends State<Login> {
       ),
     );
   }
-  /// this is the static login function that come from the  firebse service to login:
-  // void _login() async {
-  //   if (_formkey.currentState?.validate() == false) return;
-  //   try {
-  //     uitils.ShowLoading(context);
-  //     /// taking the email and passwords by controlers
-  //     UserCredential userCredential = await  Fairebaeservices.login(_emailcontroller.text, _passwordcontroller.text);
-  //     UserModel.currentUser= await Fairebaeservices.getUserId(userCredential.user!.uid);
-  //     uitils.hideDialog(context);
-  //     Navigator.pushReplacementNamed(context, Routesmanger.mainlayout);
-  //     print(" Login success, navigating now...");
-  //   } on FirebaseAuthException catch (e) {
-  //     uitils.hideDialog(context);
-  //     uitils.ShowToastMassage(e.code, Colors.red);
-  //   } catch (e) {
-  //     uitils.hideDialog(context);
-  //     uitils.ShowToastMassage("failed to Login ", Colors.red);
-  //   }
-  // }
-}
 
+  /// this is the static login function that come from the  firebse service to login:
+  void _login() async {
+    if (_formkey.currentState?.validate() == false) return;
+    //   try {
+    //     uitils.ShowLoading(context);
+    //     /// taking the email and passwords by controlers
+    //     UserCredential userCredential = await  Fairebaeservices.login(_emailcontroller.text, _passwordcontroller.text);
+    //     UserModel.currentUser= await Fairebaeservices.getUserId(userCredential.user!.uid);
+    //     uitils.hideDialog(context);
+    //     Navigator.pushReplacementNamed(context, Routesmanger.mainlayout);
+    //     print(" Login success, navigating now...");
+    //   } on FirebaseAuthException catch (e) {
+    //     uitils.hideDialog(context);
+    //     uitils.ShowToastMassage(e.code, Colors.red);
+    //   } catch (e) {
+    //     uitils.hideDialog(context);
+    //     uitils.ShowToastMassage("failed to Login ", Colors.red);
+    //   }
+    // }
+  }
+}
