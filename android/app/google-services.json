@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "638784448913",
+    "project_id": "fi-sekaty-carpooling",
+    "storage_bucket": "fi-sekaty-carpooling.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638784448913:android:b27a1928684a449d685230",
+        "android_client_info": {
+          "package_name": "com.example.fi_sekaty_carpooling_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCISCoGIQhwrqOZ8Va8rwpT1zyE6kwDMeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

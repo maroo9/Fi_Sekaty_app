@@ -1,12 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:fi_sekaty_carpooling_app/core/RoutesManger/Routesmanger.dart';
-import 'package:fi_sekaty_carpooling_app/core/Widget/CustomTextForm.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+import 'package:fi_sekaty_carpooling_app/FirebaseServices/FairebaseServices.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:fi_sekaty_carpooling_app/core/Utilits/Uitills.dart';
 import '../../../config/resoursec/isvalidate.dart';
 import '../../../core/AssetsManger/Assets_manger.dart';
 import '../../../core/Coloursmanger/Colours_manger.dart';
+import '../../../core/RoutesManger/Routesmanger.dart';
+import '../../../core/Widget/CustomTextForm.dart';
 import '../../../core/Widget/Custom_Elvated button.dart';
 import '../../../core/Widget/Custom_Text_Button.dart';
 import '../../../l10n/app_localizations.dart';
@@ -203,9 +207,18 @@ class _LoginState extends State<Login> {
   /// this is the static login function that come from the  firebse service to login:
   void _login() async {
     if (_formkey.currentState?.validate() == false) return;
-    //   try {
-    //     uitils.ShowLoading(context);
-    //     /// taking the email and passwords by controlers
+      try {
+        Uitills.Showloading(context);
+        UserCredential userCredential=await Firebaseservices.login( _emailcontroller.text ,_passwordcontroller.text);
+        Uitills.hidediaolog(context);
+        Uitills.showToastmassage("Success", Colors.green);
+        Navigator.pushReplacementNamed(context, Routesmanger.Maps);
+      } on FirebaseAuthException catch (e) {
+        Uitills.hidediaolog(context);
+       Uitills.showToastmassage("failed to login",Colors.red);
+
+      }
+        /// taking the email and passwords by controlers
     //     UserCredential userCredential = await  Fairebaeservices.login(_emailcontroller.text, _passwordcontroller.text);
     //     UserModel.currentUser= await Fairebaeservices.getUserId(userCredential.user!.uid);
     //     uitils.hideDialog(context);
@@ -221,3 +234,4 @@ class _LoginState extends State<Login> {
     // }
   }
 }
+

@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fi_sekaty_carpooling_app/core/RoutesManger/Routesmanger.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'l10n/app_localizations.dart';
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized(); // VERY IMPOR
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -25,8 +28,8 @@ class MyApp extends StatelessWidget {
         Locale('ar'), // arabic
       ],
       routes: Routesmanger.routes,
-      initialRoute: Routesmanger.splashscreen,
-
+      initialRoute:Routesmanger.splashscreen
+      //FirebaseAuth.instance.currentUser==null ?Routesmanger.Logins:Routesmanger.Mainlayout,
     ),
     );
 

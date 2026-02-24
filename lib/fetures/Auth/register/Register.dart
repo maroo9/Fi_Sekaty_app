@@ -1,5 +1,9 @@
+import 'package:fi_sekaty_carpooling_app/FirebaseServices/FairebaseServices.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:fi_sekaty_carpooling_app/core/Utilits/Uitills.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../../config/resoursec/isvalidate.dart';
 import '../../../core/AssetsManger/Assets_manger.dart';
 import '../../../core/RoutesManger/Routesmanger.dart';
@@ -44,8 +48,13 @@ class _RegisterState extends State<Register> {
         .viewInsets);
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back),
-        title: Text(AppLocalizations.of(context)!.register),
+        leading:IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, Routesmanger.Logins);
+          }
+            ),
+        title: Text(AppLocalizations.of(context)!.register)
 
       ),
 
@@ -59,7 +68,7 @@ class _RegisterState extends State<Register> {
               children: [
                 Image(image: AssetImage(Imagemanger.logoimage,),
                   width: 136,
-                  height: 186,),
+                  height: 150,),
                 SizedBox(height: 24,),
                 CustomTextForm(
                   controller: _namecontroller,
@@ -170,8 +179,19 @@ class _RegisterState extends State<Register> {
 
 
   void _registered() async {
-    //  FirebaseAuth.instance.currentUser;
+    FirebaseAuth.instance.currentUser;
     if (formkey.currentState?.validate() == false) return;
+       try {
+         Uitills.Showloading(context);
+       UserCredential userCredential = await Firebaseservices.registers(_emailcontroller.text, _passwordcontroller.text);
+         Uitills.hidediaolog(context);
+         Uitills.showToastmassage("Success", Colors.green);
+         Navigator.pushReplacementNamed(context, Routesmanger.Logins);
+       } on FirebaseAuthException catch (e) {
+         Uitills.hidediaolog(context);
+         Uitills.showToastmassage("failed to register",Colors.red);
+    }
+    }
     //   try {
     //     uitils.ShowLoading(context);
     //     UserCredential userCredential = await Fairebaeservices.registers(_emailcontroller.text, _passwordcontroller.text);
@@ -196,4 +216,3 @@ class _RegisterState extends State<Register> {
 //       },
 //       child:      Text("Login",style: GoogleFonts.inter(fontSize: 20,fontWeight: FontWeight.w500, decoration: TextDecoration.underline,color: Colorsmanger.Blue),),
 //
-}
