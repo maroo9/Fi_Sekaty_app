@@ -185,23 +185,23 @@ abstract class AppLocalizations {
   /// **'Map'**
   String get map;
 
+  /// No description provided for @services.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get services;
+
   /// No description provided for @favourite.
   ///
   /// In en, this message translates to:
   /// **'Favourite'**
   String get favourite;
 
-  /// No description provided for @profile.
+  /// No description provided for @Profile.
   ///
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
-
-  /// No description provided for @search_for_event.
-  ///
-  /// In en, this message translates to:
-  /// **'Search For Event'**
-  String get search_for_event;
 
   /// No description provided for @language.
   ///
@@ -406,6 +406,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Plate Number'**
   String get plate_number;
+
+  /// No description provided for @delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery'**
+  String get delivery;
+
+  /// No description provided for @send_item.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Item'**
+  String get send_item;
+
+  /// No description provided for @delivery_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery Details'**
+  String get delivery_details;
+
+  /// No description provided for @item_category.
+  ///
+  /// In en, this message translates to:
+  /// **'Item Category'**
+  String get item_category;
+
+  /// No description provided for @item_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Item Description'**
+  String get item_description;
+
+  /// No description provided for @upload_item_photo.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Item Photo'**
+  String get upload_item_photo;
+
+  /// No description provided for @delivery_price.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery Price'**
+  String get delivery_price;
+
+  /// No description provided for @confirm_delivery.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Delivery'**
+  String get confirm_delivery;
+
+  /// No description provided for @my_deliveries.
+  ///
+  /// In en, this message translates to:
+  /// **'My Deliveries'**
+  String get my_deliveries;
+
+  /// No description provided for @delivery_status.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivery Status'**
+  String get delivery_status;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

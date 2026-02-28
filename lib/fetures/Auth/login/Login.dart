@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
                 children: [
                   Image(image: AssetImage(Imagemanger.logoimage),
                     width: 136,
-                    height: 186,),
+                    height: 150,),
                   SizedBox(height: 24,),
                   CustomTextForm(
                     controller: _emailcontroller,
@@ -212,7 +212,7 @@ class _LoginState extends State<Login> {
         UserCredential userCredential=await Firebaseservices.login( _emailcontroller.text ,_passwordcontroller.text);
         Uitills.hidediaolog(context);
         Uitills.showToastmassage("Success", Colors.green);
-        Navigator.pushReplacementNamed(context, Routesmanger.Maps);
+        Navigator.pushReplacementNamed(context, Routesmanger.Mainlayout);
       } on FirebaseAuthException catch (e) {
         Uitills.hidediaolog(context);
        Uitills.showToastmassage("failed to login",Colors.red);

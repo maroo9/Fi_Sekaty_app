@@ -54,13 +54,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get map => 'الخريطة';
 
   @override
+  String get services => 'Create';
+
+  @override
   String get favourite => 'المفضلة';
 
   @override
   String get profile => 'الملف الشخصي';
-
-  @override
-  String get search_for_event => 'ابحث عن فعالية';
 
   @override
   String get language => 'اللغة';
@@ -163,4 +163,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get plate_number => 'رقم اللوحة';
+
+  @override
+  String get delivery => 'Delivery';
+
+  @override
+  String get send_item => 'Send Item';
+
+  @override
+  String get delivery_details => 'Delivery Details';
+
+  @override
+  String get item_category => 'Item Category';
+
+  @override
+  String get item_description => 'Item Description';
+
+  @override
+  String get upload_item_photo => 'Upload Item Photo';
+
+  @override
+  String get delivery_price => 'Delivery Price';
+
+  @override
+  String get confirm_delivery => 'Confirm Delivery';
+
+  @override
+  String get my_deliveries => 'My Deliveries';
+
+  @override
+  String get delivery_status => 'Delivery Status';
 }

@@ -12,11 +12,11 @@ class Coustom_Elvated_Button extends StatelessWidget {
     return   ElevatedButton(
 
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colorsmanger.Blue,
+          backgroundColor: Colorsmanger.lightgrey,
           foregroundColor: Colorsmanger.Whiteblue,
         ),
         onPressed: onPress,
-        child: Text(text,style:GoogleFonts.inter(fontSize: 20,fontWeight: FontWeight.w500,color: Colors.white),)
+        child: Text(text,style:GoogleFonts.inter(fontSize: 20,fontWeight: FontWeight.w500,color: Colorsmanger.darkblue),)
     );
   }
 

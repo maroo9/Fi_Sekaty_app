@@ -31,7 +31,7 @@ Widget build(BuildContext context) {
         SizedBox(height: 200,),
       Container(
           width: 200,
-          height: 250,
+          height: 150,
           child: Image(image: AssetImage(Imagemanger.logoimage,)
             ,)
 

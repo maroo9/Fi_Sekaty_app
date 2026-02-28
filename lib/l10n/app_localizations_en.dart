@@ -54,13 +54,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get map => 'Map';
 
   @override
+  String get services => 'Services';
+
+  @override
   String get favourite => 'Favourite';
 
   @override
   String get profile => 'Profile';
-
-  @override
-  String get search_for_event => 'Search For Event';
 
   @override
   String get language => 'Language';
@@ -163,4 +163,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get plate_number => 'Plate Number';
+
+  @override
+  String get delivery => 'Delivery';
+
+  @override
+  String get send_item => 'Send Item';
+
+  @override
+  String get delivery_details => 'Delivery Details';
+
+  @override
+  String get item_category => 'Item Category';
+
+  @override
+  String get item_description => 'Item Description';
+
+  @override
+  String get upload_item_photo => 'Upload Item Photo';
+
+  @override
+  String get delivery_price => 'Delivery Price';
+
+  @override
+  String get confirm_delivery => 'Confirm Delivery';
+
+  @override
+  String get my_deliveries => 'My Deliveries';
+
+  @override
+  String get delivery_status => 'Delivery Status';
 }

@@ -1,4 +1,5 @@
 import 'package:fi_sekaty_carpooling_app/FirebaseServices/FairebaseServices.dart';
+import 'package:fi_sekaty_carpooling_app/Models/User_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -181,38 +182,28 @@ class _RegisterState extends State<Register> {
   void _registered() async {
     FirebaseAuth.instance.currentUser;
     if (formkey.currentState?.validate() == false) return;
-       try {
-         Uitills.Showloading(context);
-       UserCredential userCredential = await Firebaseservices.registers(_emailcontroller.text, _passwordcontroller.text);
-         Uitills.hidediaolog(context);
-         Uitills.showToastmassage("Success", Colors.green);
-         Navigator.pushReplacementNamed(context, Routesmanger.Logins);
-       } on FirebaseAuthException catch (e) {
-         Uitills.hidediaolog(context);
-         Uitills.showToastmassage("failed to register",Colors.red);
+    try {
+      Uitills.Showloading(context);
+      UserCredential userCredential = await Firebaseservices.registers(_emailcontroller.text, _passwordcontroller.text);
+      await  Firebaseservices.addUserToFirestore(UserModel(userCredential.user!.uid, _namecontroller.text, _emailcontroller.text, null, "passanger", null, null, null, null, null, null, null));
+      Uitills.hidediaolog(context);
+      Uitills.showToastmassage("succefuly regested", Colors.green);
+      Navigator.pushReplacementNamed(context, Routesmanger.Logins);
+    } on FirebaseAuthException catch (e) {
+      Uitills.hidediaolog(context);
+      Uitills.showToastmassage(e.code, Colors.red);
+    } catch (e) {
+      Uitills.hidediaolog(context);
+      Uitills.showToastmassage("failed to register ", Colors.red);
     }
-    }
-    //   try {
-    //     uitils.ShowLoading(context);
-    //     UserCredential userCredential = await Fairebaeservices.registers(_emailcontroller.text, _passwordcontroller.text);
-    //     await  Fairebaeservices.addUasertoFireStore(UserModel(name:_namecontroller.text, id:userCredential.user!.uid, email: _emailcontroller.text));
-    //     uitils.hideDialog(context);
-    //     uitils.ShowToastMassage("succefuly regested", Colors.green);
-    //     Navigator.pushReplacementNamed(context, Routesmanger.Logins);
-    //   } on FirebaseAuthException catch (e) {
-    //     uitils.hideDialog(context);
-    //     uitils.ShowToastMassage(e.code, Colors.red);
-    //   } catch (e) {
-    //     uitils.hideDialog(context);
-    //     uitils.ShowToastMassage("failed to register ", Colors.red);
-    //   }
-    // }
-
   }
+
+}
 
 // GestureDetector(
 //       onTap: (){
 //         Navigator.pushNamed(context,Routesmanger.Logins);
 //       },
 //       child:      Text("Login",style: GoogleFonts.inter(fontSize: 20,fontWeight: FontWeight.w500, decoration: TextDecoration.underline,color: Colorsmanger.Blue),),
+//
 //
